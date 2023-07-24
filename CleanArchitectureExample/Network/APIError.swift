@@ -8,6 +8,6 @@
 import Foundation
 
 enum APIError: Error {
-    case decodeFailure(origin: Error)
+    case decodeFailure(origin: Error, data: Data)
     case unknown(origin: Error)
 }

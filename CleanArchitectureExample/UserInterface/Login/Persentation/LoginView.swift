@@ -44,7 +44,7 @@ extension LoginView {
     private var loginButton: some View {
         Button(
             action: {
-                viewModel.login()
+                viewModel.requestLogin()
             },
             label: {
                 HStack {

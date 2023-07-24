@@ -6,13 +6,23 @@
 //
 
 import UIKit
-import SwiftUI
+import Combine
 
 final class AppManager: ObservableObject {
     static let shared = AppManager()
-    private init() {}
+    private init() {
+        if LoginManager.shared.isLogin {
+            self.rootViewType = .searchUser(SearchUserViewModel())
+        }
+        else {
+            self.rootViewType = .login(LoginViewModel())
+        }
+    }
+    
+    @Published var rootViewType: RootViewType
 }
 
+// MARK: Interface
 extension AppManager {
     func openUrl(urlString: String, completion: ((Bool) -> Void)? = nil) {
         guard let url = URL(string: urlString) else {

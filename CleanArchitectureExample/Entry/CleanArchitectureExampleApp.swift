@@ -11,7 +11,8 @@ import SwiftUI
 struct CleanArchitectureExampleApp: App {
     var body: some Scene {
         WindowGroup {
-            LoginView(viewModel: LoginViewModel())
+            RootView()
+                .environmentObject(AppManager.shared)
         }
     }
 }

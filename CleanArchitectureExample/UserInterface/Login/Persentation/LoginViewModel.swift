@@ -23,7 +23,7 @@ extension LoginViewModel {
 
 // MARK: Interface
 extension LoginViewModel {
-    func login() {
+    func requestLogin() {
         let urlString = Constant.URL.gitHub + "/login/oauth/authorize?client_id=\(Constant.APIKey.gitHubClientId)&scope=user"
         AppManager.shared.openUrl(urlString: urlString) { result in
             guard result else { return }
@@ -32,7 +32,21 @@ extension LoginViewModel {
     }
     
     func receiveUrl(url: URL) {
-        guard let code = useCase.parsingGitHubCode(url: url) else { return }
-        
+        useCase.requestGitHubLogin(url: url)
+            .sink(
+                receiveCompletion: { completion in
+                    switch completion {
+                    case .failure(let error):
+                        print(error)
+                    case .finished:
+                        break
+                    }
+                },
+                receiveValue: { result in
+                    guard result else { return }
+                    let viewModel = SearchUserViewModel()
+                    AppManager.shared.rootViewType = .searchUser(viewModel)
+                })
+            .store(in: &cancelBag)
     }
 }

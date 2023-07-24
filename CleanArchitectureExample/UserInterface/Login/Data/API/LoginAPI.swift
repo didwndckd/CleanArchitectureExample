@@ -9,31 +9,31 @@ import Foundation
 import Moya
 
 enum LoginAPI {
-    case getGitHubAccessToken(code: String)
+    case postGitHubAccessToken(code: String)
 }
 
 extension LoginAPI: TargetType {
     var baseURL: URL {
         switch self {
-        case .getGitHubAccessToken: return URL(string: Constant.URL.gitHub)!
+        case .postGitHubAccessToken: return URL(string: Constant.URL.gitHub)!
         }
     }
     
     var path: String {
         switch self {
-        case .getGitHubAccessToken: return "login/oauth/access_token"
+        case .postGitHubAccessToken: return "login/oauth/access_token"
         }
     }
     
     var method: Moya.Method {
         switch self {
-        case .getGitHubAccessToken: return .get
+        case .postGitHubAccessToken: return .post
         }
     }
     
     var task: Moya.Task {
         switch self {
-        case .getGitHubAccessToken(code: let code):
+        case .postGitHubAccessToken(code: let code):
             let parameters = ["client_id": Constant.APIKey.gitHubClientId,
                               "client_secret": Constant.APIKey.gitHubClientSecret,
                               "code": code]
@@ -42,6 +42,9 @@ extension LoginAPI: TargetType {
     }
     
     var headers: [String : String]? {
-        return nil
+        switch self {
+        case .postGitHubAccessToken:
+            return ["Accept": "application/json"]
+        }
     }
 }

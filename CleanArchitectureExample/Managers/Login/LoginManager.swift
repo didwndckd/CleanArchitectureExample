@@ -21,4 +21,12 @@ extension LoginManager {
     var isLogin: Bool {
         return accessToken != nil
     }
+    
+    func registAccessToken(_ token: GitHubAccessTokenData) {
+        accessToken = token
+    }
+    
+    func removeAccessToken() {
+        accessToken = nil
+    }
 }

@@ -12,12 +12,11 @@ protocol LoginRepository {
     func fetchGitHubAccessToken(code: String) -> AnyPublisher<GitHubAccessTokenData, APIError>
 }
 
-final class DefaultLoginRepository: LoginRepository {
+struct DefaultLoginRepository: LoginRepository {
     private let provider = APIProvider<LoginAPI>()
     
     func fetchGitHubAccessToken(code: String) -> AnyPublisher<GitHubAccessTokenData, APIError> {
-        let target = LoginAPI.getGitHubAccessToken(code: code)
+        let target = LoginAPI.postGitHubAccessToken(code: code)
         return provider.request(target, decodeType: GitHubAccessTokenData.self)
-            .eraseToAnyPublisher()
     }
 }
