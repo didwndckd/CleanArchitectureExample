@@ -22,6 +22,7 @@
 		3164302A2A6E2CEE00CFA3FD /* SearchUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316430292A6E2CEE00CFA3FD /* SearchUserView.swift */; };
 		3164302C2A6E2CF900CFA3FD /* SearchUserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3164302B2A6E2CF900CFA3FD /* SearchUserViewModel.swift */; };
 		3164302F2A6E2D4900CFA3FD /* RootViewType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3164302E2A6E2D4900CFA3FD /* RootViewType.swift */; };
+		317B8DD52A6FE2530058F45C /* SearchUserRouterDestination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 317B8DD42A6FE2530058F45C /* SearchUserRouterDestination.swift */; };
 		319CEF892A68DB0A0048C38E /* CleanArchitectureExampleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 319CEF882A68DB0A0048C38E /* CleanArchitectureExampleApp.swift */; };
 		319CEF8D2A68DB0A0048C38E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 319CEF8C2A68DB0A0048C38E /* Assets.xcassets */; };
 		319CEF902A68DB0A0048C38E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 319CEF8F2A68DB0A0048C38E /* Preview Assets.xcassets */; };
@@ -85,6 +86,7 @@
 		316430292A6E2CEE00CFA3FD /* SearchUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchUserView.swift; sourceTree = "<group>"; };
 		3164302B2A6E2CF900CFA3FD /* SearchUserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchUserViewModel.swift; sourceTree = "<group>"; };
 		3164302E2A6E2D4900CFA3FD /* RootViewType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewType.swift; sourceTree = "<group>"; };
+		317B8DD42A6FE2530058F45C /* SearchUserRouterDestination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchUserRouterDestination.swift; sourceTree = "<group>"; };
 		319CEF852A68DB0A0048C38E /* CleanArchitectureExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CleanArchitectureExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		319CEF882A68DB0A0048C38E /* CleanArchitectureExampleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CleanArchitectureExampleApp.swift; sourceTree = "<group>"; };
 		319CEF8C2A68DB0A0048C38E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -227,6 +229,7 @@
 		316430282A6E2CE200CFA3FD /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				317B8DD32A6FE2440058F45C /* Router */,
 				31B9C4232A6F580800FF96CE /* View */,
 				31B9C4242A6F581200FF96CE /* ViewModel */,
 			);
@@ -240,6 +243,14 @@
 				3164302E2A6E2D4900CFA3FD /* RootViewType.swift */,
 			);
 			path = AppManager;
+			sourceTree = "<group>";
+		};
+		317B8DD32A6FE2440058F45C /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				317B8DD42A6FE2530058F45C /* SearchUserRouterDestination.swift */,
+			);
+			path = Router;
 			sourceTree = "<group>";
 		};
 		319CEF7C2A68DB0A0048C38E = {
@@ -657,6 +668,7 @@
 				31B9C4262A6F7A3800FF96CE /* AccountUseCase.swift in Sources */,
 				3164302A2A6E2CEE00CFA3FD /* SearchUserView.swift in Sources */,
 				315A1EAD2A6E4F3300C0FB4D /* GitHubUserList.swift in Sources */,
+				317B8DD52A6FE2530058F45C /* SearchUserRouterDestination.swift in Sources */,
 				31B033F32A6A815100BD6BEE /* APIError.swift in Sources */,
 				3164302C2A6E2CF900CFA3FD /* SearchUserViewModel.swift in Sources */,
 				315A1EA52A6E4CF100C0FB4D /* SearchUserRepository.swift in Sources */,

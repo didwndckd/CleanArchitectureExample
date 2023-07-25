@@ -19,34 +19,15 @@ final class SearchUserViewModel: ObservableObject {
     private let numberOfItemsInPage = 30
     private var totalCount = 0
     
+    @Published var router = DefaultRouter<SearchUserRouterDestination>()
     @Published var searchKeyword = ""
     @Published var users: [GitHubUser] = []
     @Published var isSearchLoading = false
     @Published var isNextPageLoading = false
-    @Published var moveTo = MoveTo.none
     
     init(useCase: SearchUserUseCase = DetaultSearchUserUseCase()) {
         self.useCase = useCase
         bind()
-    }
-}
-
-extension SearchUserViewModel {
-    enum MoveTo {
-        case none
-        case safari(URL)
-        
-        var isPush: Bool {
-            get {
-                switch self {
-                case .safari: return true
-                default: return false
-                }
-            }
-            set {
-                self = .none
-            }
-        }
     }
 }
 
@@ -126,6 +107,6 @@ extension SearchUserViewModel {
     
     func selectedUser(_ user: GitHubUser) {
         guard let url = URL(string: user.gitHubPageUrl) else { return }
-        moveTo = .safari(url)
+        router.destination = .safari(url)
     }
 }

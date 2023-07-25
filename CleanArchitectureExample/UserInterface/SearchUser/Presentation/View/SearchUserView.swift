@@ -9,7 +9,7 @@ import SwiftUI
 
 struct SearchUserView: View {
     @ObservedObject private var viewModel: SearchUserViewModel
-    
+
     init(viewModel: SearchUserViewModel) {
         self.viewModel = viewModel
     }
@@ -22,13 +22,13 @@ extension SearchUserView {
             VStack {
                 searchBar
                 userListView
+                    .bindRouter($viewModel.router)
             }
             .scrollDismissesKeyboard(.immediately)
             .navigationTitle("검색")
             .toolbar {
                 logoutButton
             }
-            
         }
     }
 }

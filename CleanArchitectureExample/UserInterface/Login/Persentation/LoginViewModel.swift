@@ -17,7 +17,6 @@ final class LoginViewModel: ObservableObject {
     }
 }
 
-
 // MARK: Interface
 extension LoginViewModel {
     func requestLogin() {

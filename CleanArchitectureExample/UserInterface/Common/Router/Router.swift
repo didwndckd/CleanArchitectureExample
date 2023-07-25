@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-protocol Router: AnyObject {
+protocol Router {
     associatedtype Destination: RouterDestination
     var destination: Destination? { get set }
 }
@@ -48,26 +48,7 @@ extension Router {
 }
 
 extension View {
-//    func bindRouter<R: Router>(_ router: R) -> some View {
-//        return self
-//            .navigationDestination(isPresented: router.isPush) {
-//                if let destination = router.destination {
-//                    destination.view
-//                }
-//            }
-//            .sheet(isPresented: router.isSheet) {
-//                if let destination = router.destination {
-//                    destination.view
-//                }
-//            }
-//            .fullScreenCover(isPresented: router.isFullScreenCover) {
-//                if let destination = router.destination {
-//                    destination.view
-//                }
-//            }
-//    }
-    
-    func bindRouter<R: Router>(_ router: ObservedObject<R>.Wrapper) -> some View {
+    func bindRouter<R: Router>(_ router: Binding<R>) -> some View {
         return self
             .navigationDestination(isPresented: router.isPush) {
                 if let destination = router.destination.wrappedValue {
@@ -87,14 +68,14 @@ extension View {
     }
 }
 
-final class DefaultRouter<Destination: RouterDestination>: Router, ObservableObject {
-    @Published var destination: Destination?
+struct DefaultRouter<Destination: RouterDestination>: Router {
+    var destination: Destination?
 }
 
 
 struct FullScreenCoverTestView: View {
     @Environment(\.dismiss) var dismiss
-    
+
     var body: some View {
         NavigationStack {
             Text("FullScreenCover")
@@ -111,7 +92,7 @@ enum TestDestination: RouterDestination {
     case sheet
     case push
     case fullScreenCover
-    
+
     @ViewBuilder
     var view: some View {
         switch self {
@@ -123,7 +104,7 @@ enum TestDestination: RouterDestination {
             FullScreenCoverTestView()
         }
     }
-    
+
     var transitionStyle: RouterTransitionStyle {
         switch self {
         case .sheet:
@@ -137,18 +118,19 @@ enum TestDestination: RouterDestination {
 }
 
 struct TestView: View {
-    @ObservedObject var router = DefaultRouter<TestDestination>()
+    @State var router = DefaultRouter<TestDestination>()
+
     var body: some View {
         NavigationStack {
             List {
                 Button("push", action: {
                     router.destination = .push
                 })
-                
+
                 Button("sheet", action: {
                     router.destination = .sheet
                 })
-                
+
                 Button("fullScreenCover", action: {
                     router.destination = .fullScreenCover
                 })
