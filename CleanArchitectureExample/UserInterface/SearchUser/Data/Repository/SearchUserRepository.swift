@@ -13,7 +13,6 @@ protocol SearchUserRepository {
 }
 
 struct DefaultSearchUserRepository: SearchUserRepository {
-//    private let provider = APIProvider<SearchUserAPI>(plugins: [APILoggerPlugin()])
     private let provider = APIProvider<SearchUserAPI>()
 }
 

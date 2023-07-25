@@ -11,7 +11,7 @@ import Combine
 final class AppManager: ObservableObject {
     static let shared = AppManager()
     private init() {
-        if LoginManager.shared.isLogin {
+        if AccountManager.shared.isLogin {
             self.rootViewType = .searchUser(SearchUserViewModel())
         }
         else {

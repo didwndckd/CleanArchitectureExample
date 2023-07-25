@@ -1,5 +1,5 @@
 //
-//  LoginAPI.swift
+//  AccountAPI.swift
 //  CleanArchitectureExample
 //
 //  Created by yjc on 2023/07/21.
@@ -8,11 +8,11 @@
 import Foundation
 import Moya
 
-enum LoginAPI {
+enum AccountAPI {
     case postGitHubAccessToken(code: String)
 }
 
-extension LoginAPI: TargetType {
+extension AccountAPI: TargetType {
     var baseURL: URL {
         switch self {
         case .postGitHubAccessToken: return URL(string: Constant.URL.gitHub)!

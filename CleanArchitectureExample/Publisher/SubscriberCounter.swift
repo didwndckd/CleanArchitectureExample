@@ -12,7 +12,7 @@ final class SubscriberCounter: Publisher {
     typealias Output = Int
     typealias Failure = Never
     
-    private let lock = NSRecursiveLock()
+    private let lock = NSLock()
     private let countSubject = CurrentValueSubject<Int, Never>(0)
     
     deinit {
@@ -20,10 +20,7 @@ final class SubscriberCounter: Publisher {
     }
     
     func receive<S>(subscriber: S) where S : Subscriber, Failure == S.Failure, Output == S.Input {
-        countSubject
-            .removeDuplicates()
-            .receive(on: RunLoop.main)
-            .subscribe(subscriber)
+        countSubject.subscribe(subscriber)
     }
     
     fileprivate func increment() {

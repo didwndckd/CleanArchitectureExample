@@ -7,7 +7,8 @@
 
 import Foundation
 
-struct GitHubUser: Identifiable {
+struct GitHubUser: Hashable {
+    let uuid = UUID()
     let id: Int
     let userName: String
     let gitHubPageUrl: String

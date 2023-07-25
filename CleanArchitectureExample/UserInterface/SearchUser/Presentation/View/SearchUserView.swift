@@ -28,6 +28,7 @@ extension SearchUserView {
             .toolbar {
                 logoutButton
             }
+            
         }
     }
 }
@@ -76,8 +77,14 @@ extension SearchUserView {
         List {
             Section(
                 content: {
-                    ForEach(viewModel.users) { user in
-                        SearchUserRowView(user: user)
+                    ForEach(viewModel.users, id: \.uuid) { user in
+                        Button(
+                            action: {
+                                viewModel.selectedUser(user)
+                            },
+                            label: {
+                                SearchUserRowView(user: user)
+                            })
                     }
                 },
                 footer: {
@@ -85,14 +92,18 @@ extension SearchUserView {
                         nextPageLoadingView
                     }
                     else {
-                        Rectangle()
-                            .frame(height: 0)
-                            .onAppear {
-                                viewModel.requestNextPageUsers()
-                            }
+                        nextPageRequestView
                     }
                 })
         }
+    }
+    
+    private var nextPageRequestView: some View {
+        Rectangle()
+            .frame(height: 0)
+            .onAppear {
+                viewModel.requestNextPageUsers()
+            }
     }
     
     private var nextPageLoadingView: some View {

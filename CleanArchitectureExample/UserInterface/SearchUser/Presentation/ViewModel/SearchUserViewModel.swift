@@ -16,17 +16,37 @@ final class SearchUserViewModel: ObservableObject {
     
     private let searchLoadingTracker = LoadingTracker()
     private let nextPageLoadingTracker = LoadingTracker()
-    private let perPage = 30
+    private let numberOfItemsInPage = 30
     private var totalCount = 0
     
     @Published var searchKeyword = ""
     @Published var users: [GitHubUser] = []
     @Published var isSearchLoading = false
     @Published var isNextPageLoading = false
+    @Published var moveTo = MoveTo.none
     
-    init(useCase: SearchUserUseCase = SearchUserUseCase()) {
+    init(useCase: SearchUserUseCase = DetaultSearchUserUseCase()) {
         self.useCase = useCase
         bind()
+    }
+}
+
+extension SearchUserViewModel {
+    enum MoveTo {
+        case none
+        case safari(URL)
+        
+        var isPush: Bool {
+            get {
+                switch self {
+                case .safari: return true
+                default: return false
+                }
+            }
+            set {
+                self = .none
+            }
+        }
     }
 }
 
@@ -46,8 +66,6 @@ extension SearchUserViewModel {
             .store(in: &cancelBag)
     }
     
-    
-    
     private var canRequestNextPage: Bool {
         return users.count < totalCount
     }
@@ -56,30 +74,24 @@ extension SearchUserViewModel {
 // MARK: Interface
 extension SearchUserViewModel {
     func requestLogout() {
-        guard useCase.requestLogout() else { return }
+        AccountManager.shared.removeAccessToken()
         let viewModel = LoginViewModel()
         AppManager.shared.rootViewType = .login(viewModel)
     }
     
     func requestSearchUsers() {
         guard searchKeyword.count > 0 else {
-            users = []
             searchUserRequest = nil
+            users = []
             return
         }
-//        searchUserRequest = useCase.requestSearchUsers(keyword: keyword, page: 1, perPage: perPage)
-        searchUserRequest = useCase.requestSearchUsers(keyword: searchKeyword, latestUsers: [])
+        searchUserRequest = useCase.requestSearchUsers(searchKeyword: searchKeyword, page: 1, numberOfItemsInPage: numberOfItemsInPage)
             .trackLoading(searchLoadingTracker)
             .sink(
                 receiveCompletion: { completion in
                     switch completion {
                     case .failure(let error):
-                        switch error {
-                        case .decodeFailure(origin: let origin, data: let data):
-                            print("decodeFailure origin error: \(origin), origin data: \(String(data: data, encoding: .utf8) ?? "")")
-                        default:
-                            print(error)
-                        }
+                        print(error)
                     case .finished:
                         break
                     }
@@ -93,28 +105,27 @@ extension SearchUserViewModel {
     func requestNextPageUsers() {
         guard !searchLoadingTracker.value && !nextPageLoadingTracker.value && canRequestNextPage else { return }
         
-//        let currentPage = users.count / perPage
-//        searchUserRequest = useCase.requestSearchUsers(keyword: searchKeyword, page: currentPage + 1, perPage: perPage)
-        searchUserRequest = useCase.requestSearchUsers(keyword: searchKeyword, latestUsers: users)
+        let currentPage = users.count / numberOfItemsInPage
+        searchUserRequest = useCase.requestSearchUsers(searchKeyword: searchKeyword, page: currentPage + 1, numberOfItemsInPage: numberOfItemsInPage)
+            .delay(for: .seconds(1), scheduler: DispatchQueue.main)
             .trackLoading(nextPageLoadingTracker)
             .sink(
                 receiveCompletion: { completion in
                     switch completion {
                     case .failure(let error):
-                        switch error {
-                        case .decodeFailure(origin: let origin, data: let data):
-                            print("decodeFailure origin error: \(origin), origin data: \(String(data: data, encoding: .utf8) ?? "")")
-                        default:
-                            print(error)
-                        }
+                        print(error)
                     case .finished:
                         break
                     }
                 },
                 receiveValue: { [weak self] userList in
                     self?.totalCount = userList.totalCount
-                    self?.users = userList.items
-//                    self?.users += userList.items
+                    self?.users += userList.items
                 })
+    }
+    
+    func selectedUser(_ user: GitHubUser) {
+        guard let url = URL(string: user.gitHubPageUrl) else { return }
+        moveTo = .safari(url)
     }
 }

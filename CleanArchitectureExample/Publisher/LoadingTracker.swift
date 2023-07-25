@@ -18,7 +18,7 @@ final class LoadingTracker: Publisher {
         countTracker
             .map { $0 > 0 }
             .removeDuplicates()
-            .receive(on: RunLoop.main)
+            .receive(on: DispatchQueue.main)
             .subscribe(subscriber)
     }
 }

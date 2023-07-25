@@ -10,16 +10,13 @@ import Combine
 
 final class LoginViewModel: ObservableObject {
     private var cancelBag: Set<AnyCancellable> = []
-    private let useCase: LoginUseCase
+    private let useCase: AccountUseCase
     
-    init(useCase: LoginUseCase = LoginUseCase()) {
+    init(useCase: AccountUseCase = DefaultAccountUseCase()) {
         self.useCase = useCase
     }
 }
 
-// MARK: private
-extension LoginViewModel {
-}
 
 // MARK: Interface
 extension LoginViewModel {
@@ -42,8 +39,8 @@ extension LoginViewModel {
                         break
                     }
                 },
-                receiveValue: { result in
-                    guard result else { return }
+                receiveValue: { token in
+                    AccountManager.shared.registAccessToken(token)
                     let viewModel = SearchUserViewModel()
                     AppManager.shared.rootViewType = .searchUser(viewModel)
                 })

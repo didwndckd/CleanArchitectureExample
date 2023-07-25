@@ -1,27 +1,31 @@
 //
-//  LoginUseCase.swift
+//  AccountUseCase.swift
 //  CleanArchitectureExample
 //
-//  Created by yjc on 2023/07/21.
+//  Created by yjc on 2023/07/25.
 //
 
 import Foundation
 import Combine
 
-enum LoginError: Error {
+enum AccountError: Error {
     case apiError(APIError)
     case invalidGitHubCode
 }
 
-final class LoginUseCase {
-    private let repository: LoginRepository
-    init(repository: LoginRepository = DefaultLoginRepository()) {
+protocol AccountUseCase {
+    func requestGitHubLogin(url: URL) -> AnyPublisher<GitHubAccessTokenData, AccountError>
+}
+
+final class DefaultAccountUseCase {
+    private let repository: AccountRepository
+    init(repository: AccountRepository = DefaultLoginRepository()) {
         self.repository = repository
     }
 }
 
 // MARK: private
-extension LoginUseCase {
+extension DefaultAccountUseCase {
     private func parsingGitHubCode(url: URL) -> String? {
         guard let component = URLComponents(url: url, resolvingAgainstBaseURL: false),
               let code = component.queryItems?.first(where: { $0.name == "code" })?.value,
@@ -35,19 +39,15 @@ extension LoginUseCase {
 }
 
 // MARK: Interface
-extension LoginUseCase {
-    func requestGitHubLogin(url: URL) -> some Publisher<Bool, LoginError> {
+extension DefaultAccountUseCase: AccountUseCase {
+    func requestGitHubLogin(url: URL) -> AnyPublisher<GitHubAccessTokenData, AccountError> {
         guard let code = parsingGitHubCode(url: url) else {
-            return Fail(error: LoginError.invalidGitHubCode)
+            return Fail(error: AccountError.invalidGitHubCode)
                 .eraseToAnyPublisher()
         }
         
         return repository.fetchGitHubAccessToken(code: code)
-            .handleEvents(receiveOutput: { token in
-                LoginManager.shared.registAccessToken(token)
-            })
-            .map { _ in LoginManager.shared.accessToken != nil }
-            .mapError { LoginError.apiError($0) }
+            .mapError { AccountError.apiError($0) }
             .eraseToAnyPublisher()
     }
 }

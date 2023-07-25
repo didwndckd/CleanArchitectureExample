@@ -44,7 +44,7 @@ extension SearchUserAPI: TargetType {
     var headers: [String : String]? {
         switch self {
         case .getUsers:
-            guard let tokenData = LoginManager.shared.accessToken else { return nil }
+            guard let tokenData = AccountManager.shared.accessToken else { return nil }
             return ["Authorization": "\(tokenData.tokenType) \(tokenData.accessToken)"]
         }
     }
