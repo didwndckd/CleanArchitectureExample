@@ -219,9 +219,8 @@
 		316430282A6E2CE200CFA3FD /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
-				3164302B2A6E2CF900CFA3FD /* SearchUserViewModel.swift */,
-				316430292A6E2CEE00CFA3FD /* SearchUserView.swift */,
-				315A1EAE2A6E61F900C0FB4D /* SearchUserRowView.swift */,
+				31B9C4232A6F580800FF96CE /* View */,
+				31B9C4242A6F581200FF96CE /* ViewModel */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -454,6 +453,23 @@
 				315A1EB52A6E690A00C0FB4D /* APILoggerPlugin.swift */,
 			);
 			path = Network;
+			sourceTree = "<group>";
+		};
+		31B9C4232A6F580800FF96CE /* View */ = {
+			isa = PBXGroup;
+			children = (
+				316430292A6E2CEE00CFA3FD /* SearchUserView.swift */,
+				315A1EAE2A6E61F900C0FB4D /* SearchUserRowView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		31B9C4242A6F581200FF96CE /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				3164302B2A6E2CF900CFA3FD /* SearchUserViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
