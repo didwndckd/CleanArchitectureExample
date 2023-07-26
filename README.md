@@ -13,6 +13,7 @@ Public repository에 올릴 수 없는 파일은 **ignore** 처리 했기때문�
 아래 링크 안내에 따라 프로젝트를 등록하고  `Secret` 폴더를 만들고 하위에 `Constant.APIKey` 타입을 정의 해주세요.
 
 - https://docs.github.com/ko/apps/oauth-apps/building-oauth-apps/creating-an-oauth-app
+- Authorization callback URL: didwndckdCleanArchitectureExample://login
 
 - APIKey 정의
 
