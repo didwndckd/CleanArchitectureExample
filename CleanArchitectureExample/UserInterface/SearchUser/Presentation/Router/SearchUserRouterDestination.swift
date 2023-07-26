@@ -22,7 +22,7 @@ extension SearchUserRouterDestination: RouterDestination {
     var view: some View {
         switch self {
         case .safari(let url):
-            return SafariView(url: url)
+            return SafariView(url: url).ignoresSafeArea()
         }
     }
 }
