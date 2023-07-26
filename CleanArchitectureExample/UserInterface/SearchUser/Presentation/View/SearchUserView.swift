@@ -22,10 +22,11 @@ extension SearchUserView {
             VStack {
                 searchBar
                 userListView
-                    .bindRouter($viewModel.router)
             }
+            .bindRouter($viewModel.router)
             .scrollDismissesKeyboard(.immediately)
             .navigationTitle("검색")
+            .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 logoutButton
             }

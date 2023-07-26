@@ -10,6 +10,9 @@ import Combine
 
 final class AppManager: ObservableObject {
     static let shared = AppManager()
+    
+    @Published var rootViewType: RootViewType
+    
     private init() {
         if AccountManager.shared.isLogin {
             self.rootViewType = .searchUser(SearchUserViewModel())
@@ -18,8 +21,6 @@ final class AppManager: ObservableObject {
             self.rootViewType = .login(LoginViewModel())
         }
     }
-    
-    @Published var rootViewType: RootViewType
 }
 
 // MARK: Interface
