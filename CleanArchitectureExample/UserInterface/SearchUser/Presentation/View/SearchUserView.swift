@@ -118,6 +118,9 @@ extension SearchUserView {
 
 struct SearchUserView_Previews: PreviewProvider {
     static var previews: some View {
-        SearchUserView(viewModel: SearchUserViewModel())
+        let repository = DefaultSearchUserRepository()
+        let useCase = DefaultSearchUserUseCase(repository: repository)
+        let viewModel = SearchUserViewModel(useCase: useCase)
+        SearchUserView(viewModel: viewModel)
     }
 }

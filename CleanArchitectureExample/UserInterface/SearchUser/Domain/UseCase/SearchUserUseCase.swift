@@ -12,18 +12,16 @@ protocol SearchUserUseCase {
     func requestSearchUsers(searchKeyword: String, page: Int, numberOfItemsInPage: Int) -> AnyPublisher<GitHubUserList, APIError>
 }
 
-final class DetaultSearchUserUseCase: SearchUserUseCase {
+final class DefaultSearchUserUseCase: SearchUserUseCase {
     private let repository: SearchUserRepository
-    private let numberOfUsersInPage: Int
     
-    init(repository: SearchUserRepository = DefaultSearchUserRepository(), numberOfUsersInPage: Int = 30) {
+    init(repository: SearchUserRepository) {
         self.repository = repository
-        self.numberOfUsersInPage = numberOfUsersInPage
     }
 }
 
 // MARK: Interface
-extension DetaultSearchUserUseCase {
+extension DefaultSearchUserUseCase {
     func requestSearchUsers(searchKeyword: String, page: Int, numberOfItemsInPage: Int) -> AnyPublisher<GitHubUserList, APIError> {
         return repository.fetchGitHubUserList(query: searchKeyword, page: page, perPage: numberOfItemsInPage)
     }

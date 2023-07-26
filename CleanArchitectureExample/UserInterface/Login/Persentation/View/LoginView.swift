@@ -64,6 +64,8 @@ extension LoginView {
 
 struct LoginView_Previews: PreviewProvider {
     static var previews: some View {
-        LoginView(viewModel: LoginViewModel())
+        let repository = DefaultAccountRepository()
+        let useCase = DefaultAccountUseCase(repository: repository)
+        LoginView(viewModel: LoginViewModel(useCase: useCase))
     }
 }

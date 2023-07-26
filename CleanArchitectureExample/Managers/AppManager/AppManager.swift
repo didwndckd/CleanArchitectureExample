@@ -15,10 +15,16 @@ final class AppManager: ObservableObject {
     
     private init() {
         if AccountManager.shared.isLogin {
-            self.rootViewType = .searchUser(SearchUserViewModel())
+            let repository = DefaultSearchUserRepository()
+            let useCase = DefaultSearchUserUseCase(repository: repository)
+            let viewModel = SearchUserViewModel(useCase: useCase)
+            self.rootViewType = .searchUser(viewModel)
         }
         else {
-            self.rootViewType = .login(LoginViewModel())
+            let repository = DefaultAccountRepository()
+            let useCase = DefaultAccountUseCase(repository: repository)
+            let viewModel = LoginViewModel(useCase: useCase)
+            self.rootViewType = .login(viewModel)
         }
     }
 }

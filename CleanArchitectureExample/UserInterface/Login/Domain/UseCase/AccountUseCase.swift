@@ -19,7 +19,7 @@ protocol AccountUseCase {
 
 final class DefaultAccountUseCase {
     private let repository: AccountRepository
-    init(repository: AccountRepository = DefaultLoginRepository()) {
+    init(repository: AccountRepository) {
         self.repository = repository
     }
 }
@@ -27,7 +27,8 @@ final class DefaultAccountUseCase {
 // MARK: private
 extension DefaultAccountUseCase {
     private func parsingGitHubCode(url: URL) -> String? {
-        guard let component = URLComponents(url: url, resolvingAgainstBaseURL: false),
+        guard url.absoluteString.hasPrefix(Constant.URL.gitHubLoginCallbackUrl),
+              let component = URLComponents(url: url, resolvingAgainstBaseURL: false),
               let code = component.queryItems?.first(where: { $0.name == "code" })?.value,
               code.count > 0
         else {

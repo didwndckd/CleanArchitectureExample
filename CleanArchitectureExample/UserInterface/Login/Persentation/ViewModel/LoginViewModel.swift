@@ -12,7 +12,7 @@ final class LoginViewModel: ObservableObject {
     private var cancelBag: Set<AnyCancellable> = []
     private let useCase: AccountUseCase
     
-    init(useCase: AccountUseCase = DefaultAccountUseCase()) {
+    init(useCase: AccountUseCase) {
         self.useCase = useCase
     }
 }
@@ -40,7 +40,9 @@ extension LoginViewModel {
                 },
                 receiveValue: { token in
                     AccountManager.shared.registAccessToken(token)
-                    let viewModel = SearchUserViewModel()
+                    let repository = DefaultSearchUserRepository()
+                    let useCase = DefaultSearchUserUseCase(repository: repository)
+                    let viewModel = SearchUserViewModel(useCase: useCase)
                     AppManager.shared.rootViewType = .searchUser(viewModel)
                 })
             .store(in: &cancelBag)

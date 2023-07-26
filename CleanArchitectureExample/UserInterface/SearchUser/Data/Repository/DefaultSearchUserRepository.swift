@@ -1,5 +1,5 @@
 //
-//  SearchUserRepository.swift
+//  DefaultSearchUserRepository.swift
 //  CleanArchitectureExample
 //
 //  Created by yjc on 2023/07/24.
@@ -7,10 +7,6 @@
 
 import Foundation
 import Combine
-
-protocol SearchUserRepository {
-    func fetchGitHubUserList(query: String, page: Int, perPage: Int) -> AnyPublisher<GitHubUserList, APIError>
-}
 
 struct DefaultSearchUserRepository: SearchUserRepository {
     private let provider = APIProvider<SearchUserAPI>()

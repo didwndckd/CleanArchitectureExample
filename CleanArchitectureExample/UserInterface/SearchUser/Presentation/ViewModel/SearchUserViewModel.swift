@@ -25,7 +25,7 @@ final class SearchUserViewModel: ObservableObject {
     @Published var isSearchLoading = false
     @Published var isNextPageLoading = false
     
-    init(useCase: SearchUserUseCase = DetaultSearchUserUseCase()) {
+    init(useCase: SearchUserUseCase) {
         self.useCase = useCase
         bind()
     }
@@ -56,7 +56,9 @@ extension SearchUserViewModel {
 extension SearchUserViewModel {
     func requestLogout() {
         AccountManager.shared.removeAccessToken()
-        let viewModel = LoginViewModel()
+        let repository = DefaultAccountRepository()
+        let useCase = DefaultAccountUseCase(repository: repository)
+        let viewModel = LoginViewModel(useCase: useCase)
         AppManager.shared.rootViewType = .login(viewModel)
     }
     
