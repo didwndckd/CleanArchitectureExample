@@ -16,16 +16,7 @@ final class DefaultAccountRepositoryTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
-        let provider = APIProvider<AccountAPI>(
-            endpointClosure: { target in
-                return Endpoint(url: URL(target: target).absoluteString,
-                                sampleResponseClosure: { .networkResponse(200, target.sampleData) },
-                                method: target.method,
-                                task: target.task,
-                                httpHeaderFields: target.headers)
-            },
-            stubClosure: { _ in .immediate }
-        )
+        let provider = APIProvider<AccountAPI>(stubClosure: { _ in .immediate })
         sut = DefaultAccountRepository(provider: provider)
         cancelableBag = []
     }

@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		314F7B162A7221EC00EA5DC3 /* SearchUserRepositoryStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 314F7B152A7221EC00EA5DC3 /* SearchUserRepositoryStub.swift */; };
+		314F7B182A723A8900EA5DC3 /* DefaultSearchUserRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 314F7B172A723A8900EA5DC3 /* DefaultSearchUserRepositoryTests.swift */; };
+		314F7B1A2A72400E00EA5DC3 /* DefaultSearchUserUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 314F7B192A72400E00EA5DC3 /* DefaultSearchUserUseCaseTests.swift */; };
+		314F7B1C2A724DAB00EA5DC3 /* SearchUserViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 314F7B1B2A724DAA00EA5DC3 /* SearchUserViewModelTests.swift */; };
 		315A1E9F2A6E445F00C0FB4D /* SearchUserUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 315A1E9E2A6E445F00C0FB4D /* SearchUserUseCase.swift */; };
 		315A1EA12A6E471F00C0FB4D /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 315A1EA02A6E471F00C0FB4D /* RootView.swift */; };
 		315A1EA52A6E4CF100C0FB4D /* DefaultSearchUserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 315A1EA42A6E4CF100C0FB4D /* DefaultSearchUserRepository.swift */; };
@@ -80,6 +84,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		314F7B152A7221EC00EA5DC3 /* SearchUserRepositoryStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchUserRepositoryStub.swift; sourceTree = "<group>"; };
+		314F7B172A723A8900EA5DC3 /* DefaultSearchUserRepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultSearchUserRepositoryTests.swift; sourceTree = "<group>"; };
+		314F7B192A72400E00EA5DC3 /* DefaultSearchUserUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultSearchUserUseCaseTests.swift; sourceTree = "<group>"; };
+		314F7B1B2A724DAA00EA5DC3 /* SearchUserViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchUserViewModelTests.swift; sourceTree = "<group>"; };
 		315A1E9E2A6E445F00C0FB4D /* SearchUserUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchUserUseCase.swift; sourceTree = "<group>"; };
 		315A1EA02A6E471F00C0FB4D /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		315A1EA42A6E4CF100C0FB4D /* DefaultSearchUserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultSearchUserRepository.swift; sourceTree = "<group>"; };
@@ -165,6 +173,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		314F7B142A7221DB00EA5DC3 /* SearchUser */ = {
+			isa = PBXGroup;
+			children = (
+				314F7B152A7221EC00EA5DC3 /* SearchUserRepositoryStub.swift */,
+				314F7B172A723A8900EA5DC3 /* DefaultSearchUserRepositoryTests.swift */,
+				314F7B192A72400E00EA5DC3 /* DefaultSearchUserUseCaseTests.swift */,
+				314F7B1B2A724DAA00EA5DC3 /* SearchUserViewModelTests.swift */,
+			);
+			path = SearchUser;
+			sourceTree = "<group>";
+		};
 		315A1E9C2A6E445100C0FB4D /* Domain */ = {
 			isa = PBXGroup;
 			children = (
@@ -356,6 +375,7 @@
 		31AB795D2A70C9AE006FD7A0 /* UserInterface */ = {
 			isa = PBXGroup;
 			children = (
+				314F7B142A7221DB00EA5DC3 /* SearchUser */,
 				31AB795E2A70C9BB006FD7A0 /* Login */,
 			);
 			path = UserInterface;
@@ -781,8 +801,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				314F7B162A7221EC00EA5DC3 /* SearchUserRepositoryStub.swift in Sources */,
 				31AB796D2A720823006FD7A0 /* LoginViewModelTests.swift in Sources */,
+				314F7B1C2A724DAB00EA5DC3 /* SearchUserViewModelTests.swift in Sources */,
 				319CEF9A2A68DB0A0048C38E /* CleanArchitectureExampleTests.swift in Sources */,
+				314F7B182A723A8900EA5DC3 /* DefaultSearchUserRepositoryTests.swift in Sources */,
+				314F7B1A2A72400E00EA5DC3 /* DefaultSearchUserUseCaseTests.swift in Sources */,
 				31AB796F2A7210A5006FD7A0 /* DefaultAccountRepositoryTests.swift in Sources */,
 				31AB79602A70CA16006FD7A0 /* AccountRepositoryStub.swift in Sources */,
 				31AB79692A711141006FD7A0 /* DefaultAccountUseCaseTests.swift in Sources */,
@@ -995,6 +1019,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 3S767N4AG9;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				MARKETING_VERSION = 1.0;
@@ -1014,6 +1039,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 3S767N4AG9;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				MARKETING_VERSION = 1.0;
@@ -1032,6 +1058,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 3S767N4AG9;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.didwndckd.CleanArchitectureExampleUITests;
@@ -1049,6 +1076,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 3S767N4AG9;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.didwndckd.CleanArchitectureExampleUITests;

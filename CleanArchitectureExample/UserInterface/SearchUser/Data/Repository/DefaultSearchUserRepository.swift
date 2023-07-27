@@ -9,7 +9,11 @@ import Foundation
 import Combine
 
 struct DefaultSearchUserRepository: SearchUserRepository {
-    private let provider = APIProvider<SearchUserAPI>()
+    private let provider: APIProvider<SearchUserAPI>
+    
+    init(provider: APIProvider<SearchUserAPI> = APIProvider<SearchUserAPI>()) {
+        self.provider = provider
+    }
 }
 
 // MARK: Interface

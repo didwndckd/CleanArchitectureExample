@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct GitHubUserList {
+struct GitHubUserList: Equatable {
     let totalCount: Int
     let items: [GitHubUser]
 }

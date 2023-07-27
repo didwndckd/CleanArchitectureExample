@@ -90,7 +90,6 @@ extension SearchUserViewModel {
         
         let currentPage = users.count / numberOfItemsInPage
         searchUserRequest = useCase.requestSearchUsers(searchKeyword: searchKeyword, page: currentPage + 1, numberOfItemsInPage: numberOfItemsInPage)
-            .delay(for: .seconds(1), scheduler: DispatchQueue.main)
             .trackLoading(nextPageLoadingTracker)
             .sink(
                 receiveCompletion: { completion in

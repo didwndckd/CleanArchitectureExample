@@ -110,8 +110,9 @@ final class DefaultAccountUseCaseTests: XCTestCase {
     
     func testDefaultAccountUseCase_receiveAccessTokenData_requestHitHubLogin() {
         // given
-        let url = URL(string: "\(Constant.URL.gitHubLoginCallbackUrl)?code=123")!
-        let expectation = AccountRepositoryStub.defaultTestToken
+        let code = "123"
+        let url = URL(string: "\(Constant.URL.gitHubLoginCallbackUrl)?code=\(code)")!
+        let expectation = GitHubAccessTokenData(accessToken: code, scope: "user", tokenType: "bearer")
         
         // when
         sut.requestGitHubLogin(url: url)

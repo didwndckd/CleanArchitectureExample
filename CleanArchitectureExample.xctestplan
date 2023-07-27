@@ -9,6 +9,15 @@
     }
   ],
   "defaultOptions" : {
+    "codeCoverage" : {
+      "targets" : [
+        {
+          "containerPath" : "container:CleanArchitectureExample.xcodeproj",
+          "identifier" : "319CEF842A68DB0A0048C38E",
+          "name" : "CleanArchitectureExample"
+        }
+      ]
+    },
     "targetForVariableExpansion" : {
       "containerPath" : "container:CleanArchitectureExample.xcodeproj",
       "identifier" : "319CEF842A68DB0A0048C38E",

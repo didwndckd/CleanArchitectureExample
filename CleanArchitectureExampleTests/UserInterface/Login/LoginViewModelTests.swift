@@ -29,8 +29,9 @@ final class LoginViewModelTests: XCTestCase {
     
     func testLoginViewModel_setAccessTokenAndReplaceRootViewType_receiveUrl() {
         // given
-        let url = URL(string: "\(Constant.URL.gitHubLoginCallbackUrl)?code=123")!
-        let expectationToken = AccountRepositoryStub.defaultTestToken
+        let code = "123"
+        let url = URL(string: "\(Constant.URL.gitHubLoginCallbackUrl)?code=\(code)")!
+        let expectationToken = GitHubAccessTokenData(accessToken: code, scope: "user", tokenType: "bearer")
         
         // when
         sut.receiveUrl(url: url)
