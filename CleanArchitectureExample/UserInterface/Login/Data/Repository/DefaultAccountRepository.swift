@@ -9,7 +9,11 @@ import Foundation
 import Combine
 
 struct DefaultAccountRepository: AccountRepository {
-    private let provider = APIProvider<AccountAPI>()
+    private let provider: APIProvider<AccountAPI>
+    
+    init(provider: APIProvider<AccountAPI> = APIProvider<AccountAPI>()) {
+        self.provider = provider
+    }
     
     func fetchGitHubAccessToken(code: String) -> AnyPublisher<GitHubAccessTokenData, APIError> {
         let target = AccountAPI.postGitHubAccessToken(code: code)

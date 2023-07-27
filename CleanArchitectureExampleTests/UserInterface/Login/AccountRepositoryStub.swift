@@ -10,9 +10,11 @@ import Combine
 @testable import CleanArchitectureExample
 
 struct AccountRepositoryStub: AccountRepository {
+    static let defaultTestToken = GitHubAccessTokenData(accessToken: "accessToken", scope: "user", tokenType: "bearer")
+    
     func fetchGitHubAccessToken(code: String) -> AnyPublisher<CleanArchitectureExample.GitHubAccessTokenData, CleanArchitectureExample.APIError> {
-        let token = GitHubAccessTokenData(accessToken: "accessToken", scope: "user", tokenType: "bearer")
-        return Just(token)
+        
+        return Just(AccountRepositoryStub.defaultTestToken)
             .setFailureType(to: APIError.self)
             .eraseToAnyPublisher()
     }

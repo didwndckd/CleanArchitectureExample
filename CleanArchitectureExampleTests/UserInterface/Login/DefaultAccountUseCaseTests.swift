@@ -1,5 +1,5 @@
 //
-//  AccountUseCaseTests.swift
+//  DefaultAccountUseCaseTests.swift
 //  CleanArchitectureExampleTests
 //
 //  Created by yjc on 2023/07/26.
@@ -10,7 +10,7 @@ import Combine
 
 @testable import CleanArchitectureExample
 
-final class AccountUseCaseTests: XCTestCase {
+final class DefaultAccountUseCaseTests: XCTestCase {
     var sut: DefaultAccountUseCase!
     var cancelableBag: Set<AnyCancellable> = []
     
@@ -111,7 +111,7 @@ final class AccountUseCaseTests: XCTestCase {
     func testDefaultAccountUseCase_receiveAccessTokenData_requestHitHubLogin() {
         // given
         let url = URL(string: "\(Constant.URL.gitHubLoginCallbackUrl)?code=123")!
-        let expectation = GitHubAccessTokenData(accessToken: "accessToken", scope: "user", tokenType: "bearer")
+        let expectation = AccountRepositoryStub.defaultTestToken
         
         // when
         sut.requestGitHubLogin(url: url)

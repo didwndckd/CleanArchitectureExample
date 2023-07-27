@@ -48,3 +48,21 @@ extension AccountAPI: TargetType {
         }
     }
 }
+
+// MARK: Test
+extension AccountAPI {
+    var sampleData: Data {
+        switch self {
+        case .postGitHubAccessToken(let code):
+            let stringData =
+            """
+            {
+                "access_token": "\(code)",
+                "scope": "user",
+                "token_type": "bearer"
+            }
+            """
+            return stringData.data(using: .utf8)!
+        }
+    }
+}

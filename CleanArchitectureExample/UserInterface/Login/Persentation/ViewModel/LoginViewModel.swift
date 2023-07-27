@@ -23,7 +23,7 @@ extension LoginViewModel {
         let urlString = Constant.URL.gitHub + "/login/oauth/authorize?client_id=\(Constant.APIKey.gitHubClientId)&scope=user"
         AppManager.shared.openUrl(urlString: urlString) { result in
             guard result else { return }
-            
+            print("fail open url: \(urlString)")
         }
     }
     
