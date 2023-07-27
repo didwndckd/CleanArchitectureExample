@@ -12,5 +12,5 @@ extension Constant {
 }
 
 extension Constant.Scheme {
-    static let appScheme = "didwndckdCleanArchitectureExample"
+    static let appScheme = "didwndckdcleanarchitectureexample"
 }

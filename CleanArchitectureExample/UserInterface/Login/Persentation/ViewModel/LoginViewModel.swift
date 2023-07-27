@@ -21,13 +21,11 @@ final class LoginViewModel: ObservableObject {
 extension LoginViewModel {
     func requestLogin() {
         let urlString = Constant.URL.gitHub + "/login/oauth/authorize?client_id=\(Constant.APIKey.gitHubClientId)&scope=user"
-        AppManager.shared.openUrl(urlString: urlString) { result in
-            guard result else { return }
-            print("fail open url: \(urlString)")
-        }
+        AppManager.shared.openUrl(urlString: urlString)
     }
     
     func receiveUrl(url: URL) {
+        print(url)
         useCase.requestGitHubLogin(url: url)
             .sink(
                 receiveCompletion: { completion in
