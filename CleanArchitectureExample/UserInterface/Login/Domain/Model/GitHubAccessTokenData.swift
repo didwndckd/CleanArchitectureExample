@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct GitHubAccessTokenData {
+struct GitHubAccessTokenData: Equatable {
     let accessToken: String
     let scope: String
     let tokenType: String

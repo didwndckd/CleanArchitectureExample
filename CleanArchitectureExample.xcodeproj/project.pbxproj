@@ -36,6 +36,7 @@
 		31AB79642A710CC9006FD7A0 /* SearchUserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31AB79632A710CC9006FD7A0 /* SearchUserRepository.swift */; };
 		31AB79672A710CED006FD7A0 /* AccountRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31AB79662A710CED006FD7A0 /* AccountRepository.swift */; };
 		31AB79692A711141006FD7A0 /* AccountUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31AB79682A711141006FD7A0 /* AccountUseCaseTests.swift */; };
+		31AB796B2A7205B3006FD7A0 /* Constant+Scheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31AB796A2A7205B3006FD7A0 /* Constant+Scheme.swift */; };
 		31B033BB2A6A333400BD6BEE /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B033BA2A6A333400BD6BEE /* Constant.swift */; };
 		31B033BD2A6A334900BD6BEE /* Constant+URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B033BC2A6A334900BD6BEE /* Constant+URL.swift */; };
 		31B033BF2A6A338200BD6BEE /* Constant+APIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B033BE2A6A338200BD6BEE /* Constant+APIKey.swift */; };
@@ -107,6 +108,7 @@
 		31AB79632A710CC9006FD7A0 /* SearchUserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchUserRepository.swift; sourceTree = "<group>"; };
 		31AB79662A710CED006FD7A0 /* AccountRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountRepository.swift; sourceTree = "<group>"; };
 		31AB79682A711141006FD7A0 /* AccountUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountUseCaseTests.swift; sourceTree = "<group>"; };
+		31AB796A2A7205B3006FD7A0 /* Constant+Scheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Constant+Scheme.swift"; sourceTree = "<group>"; };
 		31B033BA2A6A333400BD6BEE /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		31B033BC2A6A334900BD6BEE /* Constant+URL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Constant+URL.swift"; sourceTree = "<group>"; };
 		31B033BE2A6A338200BD6BEE /* Constant+APIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Constant+APIKey.swift"; sourceTree = "<group>"; };
@@ -402,6 +404,7 @@
 			children = (
 				31B033BA2A6A333400BD6BEE /* Constant.swift */,
 				31B033BC2A6A334900BD6BEE /* Constant+URL.swift */,
+				31AB796A2A7205B3006FD7A0 /* Constant+Scheme.swift */,
 				31B033C02A6A35BA00BD6BEE /* Secret */,
 			);
 			path = Constants;
@@ -759,6 +762,7 @@
 				31B033D32A6A530300BD6BEE /* AppManager.swift in Sources */,
 				31B033BB2A6A333400BD6BEE /* Constant.swift in Sources */,
 				31B033E32A6A67C100BD6BEE /* OptionalType.swift in Sources */,
+				31AB796B2A7205B3006FD7A0 /* Constant+Scheme.swift in Sources */,
 				31B033E02A6A66F600BD6BEE /* KeyChainStorage.swift in Sources */,
 				31B9C4292A6F8F4E00FF96CE /* SafariView.swift in Sources */,
 				315A1EA82A6E4D4400C0FB4D /* SearchUserAPI.swift in Sources */,

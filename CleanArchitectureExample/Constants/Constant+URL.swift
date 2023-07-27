@@ -11,6 +11,6 @@ extension Constant {
     enum URL {
         static let gitHub = "https://github.com"
         static let gitHubApi = "https://api.github.com"
-        static let gitHubLoginCallbackUrl = "didwndckdcleanarchitectureexample://login"
+        static let gitHubLoginCallbackUrl = "\(Constant.Scheme.appScheme)://login"
     }
 }

@@ -10,7 +10,7 @@ import Combine
 
 enum AccountError: Error {
     case apiError(APIError)
-    case invalidGitHubCode
+    case invalidGitHubCodeUrl
 }
 
 protocol AccountUseCase {
@@ -43,7 +43,7 @@ extension DefaultAccountUseCase {
 extension DefaultAccountUseCase: AccountUseCase {
     func requestGitHubLogin(url: URL) -> AnyPublisher<GitHubAccessTokenData, AccountError> {
         guard let code = parsingGitHubCode(url: url) else {
-            return Fail(error: AccountError.invalidGitHubCode)
+            return Fail(error: AccountError.invalidGitHubCodeUrl)
                 .eraseToAnyPublisher()
         }
         
