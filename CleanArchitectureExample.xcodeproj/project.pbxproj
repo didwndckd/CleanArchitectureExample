@@ -11,6 +11,7 @@
 		314F7B182A723A8900EA5DC3 /* DefaultSearchUserRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 314F7B172A723A8900EA5DC3 /* DefaultSearchUserRepositoryTests.swift */; };
 		314F7B1A2A72400E00EA5DC3 /* DefaultSearchUserUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 314F7B192A72400E00EA5DC3 /* DefaultSearchUserUseCaseTests.swift */; };
 		314F7B1C2A724DAB00EA5DC3 /* SearchUserViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 314F7B1B2A724DAA00EA5DC3 /* SearchUserViewModelTests.swift */; };
+		315307D32A738937000A7259 /* Constant+APIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 315307D22A738937000A7259 /* Constant+APIKey.swift */; };
 		315A1E9F2A6E445F00C0FB4D /* SearchUserUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 315A1E9E2A6E445F00C0FB4D /* SearchUserUseCase.swift */; };
 		315A1EA12A6E471F00C0FB4D /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 315A1EA02A6E471F00C0FB4D /* RootView.swift */; };
 		315A1EA52A6E4CF100C0FB4D /* DefaultSearchUserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 315A1EA42A6E4CF100C0FB4D /* DefaultSearchUserRepository.swift */; };
@@ -45,7 +46,6 @@
 		31AB796F2A7210A5006FD7A0 /* DefaultAccountRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31AB796E2A7210A5006FD7A0 /* DefaultAccountRepositoryTests.swift */; };
 		31B033BB2A6A333400BD6BEE /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B033BA2A6A333400BD6BEE /* Constant.swift */; };
 		31B033BD2A6A334900BD6BEE /* Constant+URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B033BC2A6A334900BD6BEE /* Constant+URL.swift */; };
-		31B033BF2A6A338200BD6BEE /* Constant+APIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B033BE2A6A338200BD6BEE /* Constant+APIKey.swift */; };
 		31B033C82A6A4A7300BD6BEE /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B033C72A6A4A7200BD6BEE /* LoginViewModel.swift */; };
 		31B033CA2A6A4A9A00BD6BEE /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B033C92A6A4A9A00BD6BEE /* LoginView.swift */; };
 		31B033D32A6A530300BD6BEE /* AppManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B033D22A6A530300BD6BEE /* AppManager.swift */; };
@@ -88,6 +88,7 @@
 		314F7B172A723A8900EA5DC3 /* DefaultSearchUserRepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultSearchUserRepositoryTests.swift; sourceTree = "<group>"; };
 		314F7B192A72400E00EA5DC3 /* DefaultSearchUserUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultSearchUserUseCaseTests.swift; sourceTree = "<group>"; };
 		314F7B1B2A724DAA00EA5DC3 /* SearchUserViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchUserViewModelTests.swift; sourceTree = "<group>"; };
+		315307D22A738937000A7259 /* Constant+APIKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Constant+APIKey.swift"; sourceTree = "<group>"; };
 		315A1E9E2A6E445F00C0FB4D /* SearchUserUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchUserUseCase.swift; sourceTree = "<group>"; };
 		315A1EA02A6E471F00C0FB4D /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		315A1EA42A6E4CF100C0FB4D /* DefaultSearchUserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultSearchUserRepository.swift; sourceTree = "<group>"; };
@@ -123,7 +124,6 @@
 		31AB796E2A7210A5006FD7A0 /* DefaultAccountRepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultAccountRepositoryTests.swift; sourceTree = "<group>"; };
 		31B033BA2A6A333400BD6BEE /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		31B033BC2A6A334900BD6BEE /* Constant+URL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Constant+URL.swift"; sourceTree = "<group>"; };
-		31B033BE2A6A338200BD6BEE /* Constant+APIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Constant+APIKey.swift"; sourceTree = "<group>"; };
 		31B033C12A6A36A500BD6BEE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		31B033C72A6A4A7200BD6BEE /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		31B033C92A6A4A9A00BD6BEE /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
@@ -182,6 +182,14 @@
 				314F7B1B2A724DAA00EA5DC3 /* SearchUserViewModelTests.swift */,
 			);
 			path = SearchUser;
+			sourceTree = "<group>";
+		};
+		315307D12A738937000A7259 /* Secret */ = {
+			isa = PBXGroup;
+			children = (
+				315307D22A738937000A7259 /* Constant+APIKey.swift */,
+			);
+			path = Secret;
 			sourceTree = "<group>";
 		};
 		315A1E9C2A6E445100C0FB4D /* Domain */ = {
@@ -431,17 +439,9 @@
 				31B033BA2A6A333400BD6BEE /* Constant.swift */,
 				31B033BC2A6A334900BD6BEE /* Constant+URL.swift */,
 				31AB796A2A7205B3006FD7A0 /* Constant+Scheme.swift */,
-				31B033C02A6A35BA00BD6BEE /* Secret */,
+				315307D12A738937000A7259 /* Secret */,
 			);
 			path = Constants;
-			sourceTree = "<group>";
-		};
-		31B033C02A6A35BA00BD6BEE /* Secret */ = {
-			isa = PBXGroup;
-			children = (
-				31B033BE2A6A338200BD6BEE /* Constant+APIKey.swift */,
-			);
-			path = Secret;
 			sourceTree = "<group>";
 		};
 		31B033C22A6A4A4100BD6BEE /* UserInterface */ = {
@@ -755,7 +755,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				31AB79642A710CC9006FD7A0 /* SearchUserRepository.swift in Sources */,
-				31B033BF2A6A338200BD6BEE /* Constant+APIKey.swift in Sources */,
 				315A1E9F2A6E445F00C0FB4D /* SearchUserUseCase.swift in Sources */,
 				31B033F12A6A801800BD6BEE /* APIProvider.swift in Sources */,
 				31B033CA2A6A4A9A00BD6BEE /* LoginView.swift in Sources */,
@@ -791,6 +790,7 @@
 				31AB796B2A7205B3006FD7A0 /* Constant+Scheme.swift in Sources */,
 				31B033E02A6A66F600BD6BEE /* KeyChainStorage.swift in Sources */,
 				31B9C4292A6F8F4E00FF96CE /* SafariView.swift in Sources */,
+				315307D32A738937000A7259 /* Constant+APIKey.swift in Sources */,
 				315A1EA82A6E4D4400C0FB4D /* SearchUserAPI.swift in Sources */,
 				315A1EB42A6E64BE00C0FB4D /* Image+.swift in Sources */,
 				3164302F2A6E2D4900CFA3FD /* RootViewType.swift in Sources */,
